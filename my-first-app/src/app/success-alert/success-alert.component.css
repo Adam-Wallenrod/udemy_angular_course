@@ -1,0 +1,17 @@
+h3 {
+  background-color: red;
+  text-align: center;
+  border: solid 3px red;
+  margin-bottom: 0;
+  margin-top: 20px;
+
+}
+
+#message {
+  background-color: #ff6666;
+  font-size: 17px;
+  line-height: 2;
+  height: 100px;
+  border: solid 3px red;
+  padding: 20px 30px;
+}
