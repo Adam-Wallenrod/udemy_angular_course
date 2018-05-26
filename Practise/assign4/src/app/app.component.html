@@ -1,0 +1,12 @@
+<app-game-control (incCounter)="onTick($event)"></app-game-control>
+{{counter}}
+
+<hr>
+Odds:
+<br><br>
+<app-odd [inputNumber]="counter"></app-odd>
+
+<hr>
+Evens:
+<br><br>
+<app-even [inputNumber]="counter"></app-even>
