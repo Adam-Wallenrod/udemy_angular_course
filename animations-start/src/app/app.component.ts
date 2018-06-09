@@ -22,7 +22,7 @@ import {trigger,
       transition('normal <=> highlighted', animate(300)),
       //transition('highlighted => normal', animate(600))
     ]),
-    trigger('wildState', [
+     trigger('wildState', [
       state('normal', style({
         'background-color': 'red',
          transform: 'translateX(0) scale(1)'
@@ -37,10 +37,38 @@ import {trigger,
       })),
       transition('normal => highlighted', animate(300)),
       transition('highlighted => normal', animate(600)),
-      transition('shrunken <=> *', animate(500)),
-    ])
-  ]
-})
+      transition('shrunken <=> *', [
+        style({
+          'background-color': 'orange'
+        }),
+        animate(1000, style({
+          borderRadius: '50px'
+        })),
+        animate(500)
+      ])
+    ]),
+    trigger('list1', [
+      state('in', style({
+         opacity: 1,
+         transform: 'translateX(0)'
+      })),
+      transition('void => *', [
+         style({
+           opacity: 0,
+           transform: 'translateX(-100px)'
+         }),
+         animate(300)
+       ]),
+       transition('* => void', [
+          animate(300, style({
+            opacity: 0,
+            transform: 'translateX(100px)'
+          }))
+        ]),
+    ]),
+   ]
+ })
+
 export class AppComponent {
   list = ['Milk', 'Sugar', 'Bread'];
   state = "normal";
@@ -48,7 +76,7 @@ export class AppComponent {
 
     onAnimate() {
       this.state == 'normal' ? this.state = 'highlighted' : this.state = 'normal';
-      this.wildState == 'normal' ? this.state = 'highlighted' : this.state = 'normal';
+      this.wildState == 'normal' ? this.wildState = 'highlighted' : this.wildState = 'normal';
     }
 
     onShrink() {
