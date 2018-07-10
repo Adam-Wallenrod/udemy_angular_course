@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+information: number = 87;
+serverCreated = false;
+forParent : number;
+
+onClickButton(){
+  this.serverCreated = true;
+}
+
+onChildUpdate(receivedData){
+  //console.log('This is parent~! receivedData is: ');
+  //console.log(receivedData);
+  this.forParent = receivedData;
+}
+
+
 }
