@@ -15,30 +15,30 @@ export class CockpitComponent implements OnInit {
 
   nestedJSON = [
     {
-      id: 1,
-      name: 'Place_1',
-      stations: [
+      "id": 1,
+      "name": "Place_1",
+      "stations": [
         {
-          id: 11,
-          name: 'Station_1'
+          "id": 11,
+          "name": "Station_1"
         },
         {
-          id: 12,
-          name: 'Station_2'
+          "id": 12,
+          "name": "Station_2"
         }
       ]
     },
     {
-      id: 2,
-      name: 'Place_2',
-      stations: [
+      "id": 2,
+      "name": "Place_2",
+      "stations": [
         {
-          id: 21,
-          name: 'Station_21'
+          "id": 21,
+          "name": "Station_21"
         },
         {
-          id: 22,
-          name: 'Station_22'
+          "id": 22,
+          "name": "Station_22"
         }
       ]
     }
@@ -47,49 +47,70 @@ export class CockpitComponent implements OnInit {
 
 
 
-  // makeFlatJSON(data: any){
-  //   let result = {};
-  //   let resultArray : any[] = [];
-  //
-  //   function recurse (cur, prop) {
-  //       if (Object(cur) !== cur) {
-  //          console.log('Cur: ' + cur);
-  //           result[prop] = cur;
-  //           resultArray.push(cur);
-  //         }
-  //
-  //       } else if (Array.isArray(cur)) {
-  //            for(let i=0; i<cur.length; i++)
-  //                recurse(cur[i], prop + "[" + i + "]");
-  //           if (cur.length == 0)
-  //               result[prop] = [];
-  //       } else {
-  //           var isEmpty = true;
-  //           for (let p in cur) {
-  //               isEmpty = false;
-  //               recurse(cur[p], prop ? prop+"."+p : p);
-  //           }
-  //           if (isEmpty && prop)
-  //               result[prop] = {};
-  //       }
-  //   }
-  //   recurse(data, "");
-  //   console.log(resultArray);
-  //   return result;
-  // }
+
+  makeFlatJson(data) {
+      let result = {};
+      let arrayResult: Array<Object> = [];
+
+      for(let i=0; i< data.length; i++){
+        arrayResult[i] = [{}];
+      }
+
+
+      function recurse (cur, prop, counter?: number) {
+
+          if (Object(cur) !== cur) {
+             result[prop] = cur;
+             //arrayResult[counter].push([[prop]:cur});
+              //arrayResult[counter] = {[prop]:cur};
+              arrayResult[counter].[prop] = cur;
+
+          }
+           else if (Array.isArray(cur)) {
+
+               for(let i=0; i<cur.length; i++)
+               {
+
+                 recurse(cur[i], prop + "[" + i + "]", i);
+
+               }
+
+                  result[prop] = [];
+          }
+           else
+            {
+              var isEmpty = true;
+              for (let p in cur) {
+                  isEmpty = false;
+                 // console.log(cur[p]);
+                 //
+                 //  console.log(prop);
+                   recurse(cur[p], prop ? prop+"_"+p : p);
+                  //recurse(cur[p], prop+"_"+p, counter );
+
+
+
+              }
+
+          }
+      }
+
+      //recurse(data, "", data.length);
+      recurse(data, "");
+      //console.log(result);
+      //console.log((result));
+      console.log(arrayResult);
+    //  console.log(testArray);
+      //return result;
+      return arrayResult;
+  }
+
 
   constructor() {
-    // console.log('NestedJSON: ');
-    // console.log(this.nestedJSON);
-    // this.myFlatJson = this.makeFlatJSON(this.nestedJSON[1]);
-    // console.log('converted: ');
-    // console.log(this.myFlatJson);
 
-    let input = this.nestedJSON[0].stations;
+  this.makeFlatJson(this.nestedJSON);
 
-    let result = _.mapValues(_.keyBy(input, 'id'), 'name');
-    console.log(result);
-   }
+  }
 
   ngOnInit() {
       this.childValue.emit(6);
