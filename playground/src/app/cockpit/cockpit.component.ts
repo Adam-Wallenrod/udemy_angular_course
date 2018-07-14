@@ -52,8 +52,11 @@ export class CockpitComponent implements OnInit {
       let result = {};
       let arrayResult: Array<Object> = [];
 
+      let obj: {[k: string]: any} = {};
+
+
       for(let i=0; i< data.length; i++){
-        arrayResult[i] = [{}];
+        arrayResult[i] = [{obj}];
       }
 
 
@@ -61,10 +64,10 @@ export class CockpitComponent implements OnInit {
 
           if (Object(cur) !== cur) {
              result[prop] = cur;
-             //arrayResult[counter].push([[prop]:cur});
-              //arrayResult[counter] = {[prop]:cur};
-              arrayResult[counter].[prop] = cur;
-
+             //arrayResult[counter].push({[prop]:cur});
+              arrayResult[counter] = {[prop]:cur};
+              //arrayResult[0].pupcia = 'yeah'
+                //console.log(arrayResult[0]);
           }
            else if (Array.isArray(cur)) {
 
@@ -96,7 +99,7 @@ export class CockpitComponent implements OnInit {
       }
 
       //recurse(data, "", data.length);
-      recurse(data, "");
+      recurse(data, "", data.lengh);
       //console.log(result);
       //console.log((result));
       console.log(arrayResult);
