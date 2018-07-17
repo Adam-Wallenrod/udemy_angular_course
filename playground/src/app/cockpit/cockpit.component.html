@@ -1,12 +1,32 @@
-<!-- <p>
-  cockpit works!
-</p> -->
-
 <p>
   This is part of cockpit component. information passed from parent Component
   is: {{secretInformation}}
 </p>
 
+<hr>
+
 <p>
   nestedJSON: {{nestedJSON | json}}
 </p>
+
+<hr>
+
+<div>
+  <label>Here you can change ngSwitchVariable (if you want)</label>
+  <div>
+    <input [(ngModel)]="ngSwitchVariable"/>
+  </div>
+  <br>
+  ngSwitchVariable = {{ngSwitchVariable}}
+</div>
+
+<h4>ngSwitch example</h4>
+<div [ngSwitch]="ngSwitchVariable">
+  <p *ngSwitchCase="0">ngSwitchVariable is equal 0</p>
+  <p *ngSwitchCase="1">ngSwitchVariable is equal 1</p>
+  <p *ngSwitchCase="2">ngSwitchVariable is equal 2</p>
+  <p *ngSwitchCase="3">ngSwitchVariable is equal 3</p>
+  <p *ngSwitchDefault>Unknow value</p>
+</div>
+
+<hr>

@@ -11,6 +11,8 @@ export class CockpitComponent implements OnInit {
   @Input('fromParent') secretInformation: number;
   @Output() childValue = new EventEmitter<number>();
 
+  ngSwitchVariable = 88;
+
   myFlatJson: {} = {};
 
   nestedJSON = [
