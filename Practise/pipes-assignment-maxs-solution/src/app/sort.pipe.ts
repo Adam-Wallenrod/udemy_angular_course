@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'sort',
   pure: false
 })
-
 export class SortPipe implements PipeTransform {
 
   transform(value: any, propName: string): any {
@@ -16,6 +15,5 @@ export class SortPipe implements PipeTransform {
       }
     });
   }
+
 }
-
-
