@@ -35,7 +35,7 @@
 
         <li
           class="list-group-item"
-          *ngFor="let server of servers | filter:filteredStatus:'status' | sort:'name'"
+          *ngFor="let server of servers | filter:filteredStatus:'status' | sort:'instanceType'"
           [ngClass]="getStatusClasses(server)">
           <span
             class="badge">

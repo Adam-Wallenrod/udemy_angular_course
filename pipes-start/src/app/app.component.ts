@@ -12,32 +12,39 @@ export class AppComponent {
     },2000);
   });
 
+   basicArray = ['ccc', 'ddd', 'zzz', 'bbb', 'aaa'];
+
   servers = [
     {
       instanceType: 'medium',
       name: 'Production',
-      status: 'stable',
+      status: 'z_stable',
       started: new Date(15, 1, 2017)
     },
     {
       instanceType: 'large',
       name: 'User Database',
-      status: 'stable',
+      status: 'b_stable',
       started: new Date(15, 1, 2017)
     },
     {
       instanceType: 'small',
       name: 'Development Server',
-      status: 'offline',
+      status: 'a_offline',
       started: new Date(15, 1, 2017)
     },
     {
       instanceType: 'small',
       name: 'Testing Environment Server',
-      status: 'stable',
+      status: 'p_stable',
       started: new Date(15, 1, 2017)
     }
   ];
+
+  constructor() {
+    console.log( this.simpleSortMethod(this.basicArray));
+  }
+
 
   filteredStatus = '';
   getStatusClasses(server: {instanceType: string, name: string, status: string, started: Date}) {
@@ -56,4 +63,17 @@ export class AppComponent {
       started: new Date(15, 1, 2017)
     });
   }
+
+
+  simpleSortMethod(value: any): any {
+    return value.sort( (a, b) => {
+      if ( a > b ) {
+        return 1;
+      } else {
+        return -1;
+      }
+    } );
+  }
+
+
 }
