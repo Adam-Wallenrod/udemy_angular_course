@@ -1,19 +1,33 @@
-<h3>This is playground</h3>
+<!--<h3>This is playground</h3>-->
 
-<button (click)="onClickButton()">hit me please!</button>
+<!--<button (click)="onClickButton()">hit me please!</button>-->
 
-<p *ngIf="serverCreated; else elseCondition">Server was created!</p>
-<ng-template #elseCondition>
-  <p>Server does not exist!</p>
-</ng-template>
+<!--<p *ngIf="serverCreated; else elseCondition">Server was created!</p>-->
+<!--<ng-template #elseCondition>-->
+  <!--<p>Server does not exist!</p>-->
+<!--</ng-template>-->
 
-<app-cockpit [fromParent]="information"
-             (childValue)="onChildUpdate($event)"
->
-</app-cockpit>
+<!--<app-cockpit [fromParent]="information"-->
+             <!--(childValue)="onChildUpdate($event)"-->
+<!--&gt;-->
+<!--</app-cockpit>-->
 
 
-<p>
-  And know I sending data from child component (this is such awsome program):
-  {{forParent}}
-</p>
+<!--<p>-->
+  <!--And know I sending data from child component (this is such awsome program):-->
+  <!--{{forParent}}-->
+<!--</p>-->
+
+<header>Testing router transitions</header>
+
+<nav>
+  <a routerLink="/memory-a" routerLinkActive="active">Memory A</a>
+  <a routerLink="/memory-b" routerLinkActive="active">Memory B</a>
+  <a routerLink="/memory-c" routerLinkActive="active">Memory c</a>
+</nav>
+
+<main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+
+<!--<footer></footer>-->
