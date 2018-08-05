@@ -5,6 +5,7 @@ import {
   FormGroup, ValidatorFn,
   Validators
 } from '@angular/forms';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,10 @@ export class AppComponent {
 
   projectStatusList: string[ ] = ['Stable', 'Critical', 'Finished'];
   defaultProjectStatus: string = 'Stable';
-  forbiddenName: string [] = ['Test'];
+  forbiddenName: string [] = ['Test', 'test'];
 
   projectForm = new FormGroup({
-    projectName: new FormControl('', [Validators.required, this.forbiddenNameValidator(this.forbiddenName)]),
+    projectName: new FormControl('', [Validators.required], this.asyncForbiddenNameValidator),
     email: new FormControl('', [Validators.required, Validators.email]),
     projectStatus: new FormControl(null)
   });
@@ -41,17 +42,33 @@ export class AppComponent {
   //
   // }
 
-  forbiddenNameValidator(name: string[]): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      if (name.indexOf(control.value) !== -1) {
-        return {'forbiddenName': {value: control.value}};
-      }
-      else {
-        return null;
-      }
+  // forbiddenNameValidator(name: string[]): ValidatorFn {
+  //   return (control: AbstractControl): { [key: string]: any } | null => {
+  //     if (name.indexOf(control.value) !== -1) {
+  //       return {'forbiddenName': {value: control.value}};
+  //     }
+  //     else {
+  //       return null;
+  //     }
+  //   };
+  // }
 
-    };
 
+  asyncForbiddenNameValidator(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+
+      setTimeout(() => {
+        if (control.value === 'Test' ) {
+          resolve({'forbiddenName': {value: control.value}});
+        } else {
+          return (null);
+        }
+
+      } ,1500 );
+
+    });
+    return promise;
   }
+
 
 }

@@ -28,8 +28,9 @@
                                      && !projectForm.controls['email'].valid">
             Project name is required
          </span>
-         <span class="help-block" *ngIf="projectForm.controls['projectName'].errors['forbiddenName']">
-           The entered name is fobidden!
+         <!--<span class="help-block" *ngIf="projectForm.controls['projectName'].errors?.forbiddenName">-->
+         <span class="help-block" *ngIf="projectForm.hasError('forbiddenName', 'projectName')">
+           The entered name is forbidden!
          </span>
 
        </div>
