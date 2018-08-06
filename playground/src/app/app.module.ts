@@ -10,13 +10,16 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import { MemoryAComponent } from './memory-a/memory-a.component';
 import { MemoryBComponent } from './memory-b/memory-b.component';
 import { MemoryCComponent } from './memory-c/memory-c.component';
+import { TestChartComponent } from './test-chart/test-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'memory-a' },
   { path: 'memory-a', component: MemoryAComponent },
   { path: 'memory-b', component: MemoryBComponent },
-  { path: 'memory-c', component: MemoryCComponent }
+  { path: 'memory-c', component: MemoryCComponent },
+  { path: 'charts', component: TestChartComponent }
 ];
 
 
@@ -27,13 +30,15 @@ const appRoutes: Routes = [
     MemoryAComponent,
     MemoryBComponent,
     MemoryCComponent,
+    TestChartComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot( appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
