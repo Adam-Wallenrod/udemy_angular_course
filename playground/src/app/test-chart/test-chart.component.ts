@@ -37,4 +37,31 @@ export class TestChartComponent {
   }
 
 
+  data = [
+    {
+      "name": "Germany",
+      "value": 46268
+    },
+    {
+      "name": "USA",
+      "value": 53041
+    },
+    {
+      "name": "France",
+      "value": 42503
+    },
+    {
+      "name": "United Kingdom",
+      "value": 41787
+    },
+    {
+      "name": "Spain",
+      "value": 29863
+    },
+    {
+      "name": "Italy",
+      "value": 35925
+    }
+  ];
+
 }

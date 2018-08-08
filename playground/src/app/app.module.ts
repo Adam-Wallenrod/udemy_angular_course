@@ -12,6 +12,7 @@ import { MemoryBComponent } from './memory-b/memory-b.component';
 import { MemoryCComponent } from './memory-c/memory-c.component';
 import { TestChartComponent } from './test-chart/test-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CustomChartComponent } from './custom-chart/custom-chart.component';
 
 
 const appRoutes: Routes = [
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     MemoryBComponent,
     MemoryCComponent,
     TestChartComponent,
+    CustomChartComponent,
 
   ],
   imports: [

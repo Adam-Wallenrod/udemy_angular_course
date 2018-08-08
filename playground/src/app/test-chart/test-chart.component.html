@@ -10,3 +10,15 @@
   [doughnut]="doughnut"
   (select)="onSelect($event)">
 </ngx-charts-pie-chart>
+
+<br><br>
+<hr>
+<br>
+
+<div class="container">
+  <h2>Custom Chart</h2>
+  <app-custom-chart
+    [view]="[500,200]"
+    [results]="data">
+  </app-custom-chart>
+</div>
