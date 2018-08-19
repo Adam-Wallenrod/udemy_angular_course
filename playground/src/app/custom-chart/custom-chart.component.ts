@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {
   BaseChartComponent,
   ColorHelper,
@@ -53,7 +53,7 @@ import {scaleBand, scaleLinear, scalePoint, scaleTime} from 'd3-scale';
   styleUrls: ['./custom-chart.component.css']
 })
 export class CustomChartComponent extends BaseChartComponent
-  implements OnChanges {
+  implements OnChanges, OnInit {
 
 
   dims: any;
@@ -86,6 +86,10 @@ export class CustomChartComponent extends BaseChartComponent
 
 
   ngOnChanges() {
+    this.update();
+  }
+
+  ngOnInit() {
     this.update();
   }
 
