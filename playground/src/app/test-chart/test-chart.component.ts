@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, Input, ElementRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -17,7 +17,18 @@ export class TestChartComponent {
   single: any[];
   multi: any[];
 
+
+  @Input() private _width = null;
+    set width(value: any) {
+      this._width = value;
+    }
+    get width(): any {
+   return this._width || this.el.nativeElement.clientWidth;
+ }
+
+
   view: any[] = [600, 200];
+  view2: any[] = [,200];
   // options
   showLegend = true;
 
@@ -75,6 +86,24 @@ export class TestChartComponent {
       'value': 35925
     }
   ];
+
+
+  data2 = [
+    {
+      'name': 'Germany',
+      'value': 46268
+    },
+    {
+      'name': 'USA',
+      'value': 53041
+    },
+    {
+      'name': 'France',
+      'value': 42503
+    }
+  ];
+
+
 
   lineChartSeries = [
     {
@@ -156,7 +185,7 @@ export class TestChartComponent {
   ];
 
 
-  constructor() {
+  constructor(private el: ElementRef) {
     Object.assign(this, {single, multi});
   }
 

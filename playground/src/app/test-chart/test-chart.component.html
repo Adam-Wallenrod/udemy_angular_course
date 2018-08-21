@@ -1,27 +1,33 @@
+<div class="grey-area">
 
+  <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="single"
+    [legend]="showLegend"
+    [explodeSlices]="explodeSlices"
+    [labels]="showLabels"
+    [doughnut]="doughnut"
+    (select)="onSelect($event)">
+  </ngx-charts-pie-chart>
 
-<ngx-charts-pie-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="single"
-  [legend]="showLegend"
-  [explodeSlices]="explodeSlices"
-  [labels]="showLabels"
-  [doughnut]="doughnut"
-  (select)="onSelect($event)">
-</ngx-charts-pie-chart>
+  <br><br>
+  <hr>
+  <br>
 
-<br><br>
-<hr>
-<br>
+  <div class="container">
+    <h2>number cards</h2>
+    <div class="box">
+      <div class="column is-half">
+        <div id="chart">
+          <ngx-charts-number-card
+             [scheme]="colorScheme"
+             [results]="data"
+             >
+          </ngx-charts-number-card>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
-  <h2>Custom Chart</h2>
-  <app-custom-chart
-    [view]="[500,200]"
-    [results]="data"
-    [lineChart]="lineChartSeries"
-    [ready]="true"
-    [curve]="curve">
-  </app-custom-chart>
 </div>

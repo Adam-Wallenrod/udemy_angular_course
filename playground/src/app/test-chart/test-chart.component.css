@@ -1,4 +1,19 @@
-app-custom-chart {
-  position: relative;
-  left: 70px;
+div.grey-area  {
+  background-color: grey;
+  height: 500px;
+}
+
+.box {
+  margin: 0 30px;
+}
+
+#chart {
+  display: grid;
+  height: 300px
+}
+
+
+ngx-charts-number-card {
+  max-width: 100%;
+
 }
