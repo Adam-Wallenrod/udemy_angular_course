@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { MemoryAComponent } from './memory-a/memory-a.component';
 import { MemoryBComponent } from './memory-b/memory-b.component';
@@ -13,6 +15,10 @@ import { MemoryCComponent } from './memory-c/memory-c.component';
 import { TestChartComponent } from './test-chart/test-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CustomChartComponent } from './custom-chart/custom-chart.component';
+import { InfiniteScrollerDirective } from './infinite-scroller.directive';
+//import { HackerNewsService } from './hacker-news.service';
+import { NewsComponent } from './news/news.component';
+import { MeanPipe } from './mean.pipe';
 
 
 const appRoutes: Routes = [
@@ -20,7 +26,8 @@ const appRoutes: Routes = [
   { path: 'memory-a', component: MemoryAComponent },
   { path: 'memory-b', component: MemoryBComponent },
   { path: 'memory-c', component: MemoryCComponent },
-  { path: 'charts', component: TestChartComponent }
+  { path: 'charts', component: TestChartComponent },
+  { path: 'news', component: NewsComponent }
 ];
 
 
@@ -33,16 +40,19 @@ const appRoutes: Routes = [
     MemoryCComponent,
     TestChartComponent,
     CustomChartComponent,
-
+    InfiniteScrollerDirective,
+    NewsComponent,
+    MeanPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot( appRoutes),
     BrowserAnimationsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    HttpClientModule
   ],
-  providers: [],
+  //providers: [HackerNewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

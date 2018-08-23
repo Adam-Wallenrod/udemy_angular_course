@@ -270,5 +270,3 @@ export class CustomChartComponent extends BaseChartComponent
     return scale;
   }
 }
-
-
