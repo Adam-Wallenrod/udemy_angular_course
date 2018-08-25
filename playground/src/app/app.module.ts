@@ -19,6 +19,7 @@ import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 //import { HackerNewsService } from './hacker-news.service';
 import { NewsComponent } from './news/news.component';
 import { MeanPipe } from './mean.pipe';
+import { MeanPipeHostComponent } from './mean-pipe-host/mean-pipe-host.component';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     CustomChartComponent,
     InfiniteScrollerDirective,
     NewsComponent,
-    MeanPipe
+    MeanPipe,
+    MeanPipeHostComponent
   ],
   imports: [
     BrowserModule,
