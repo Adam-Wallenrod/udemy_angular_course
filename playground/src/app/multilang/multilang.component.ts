@@ -20,9 +20,9 @@ import { TranslateService } from '@ngx-translate/core';
         </label>
       </div>
   `,
-  styleUrls: ['./mulitilang.component.css']
+  styleUrls: ['./multilang.component.css']
 })
-export class MulitilangComponent implements OnInit {
+export class MultilangComponent implements OnInit {
   param = {value: 'world'};
 
   constructor(public translate: TranslateService) {

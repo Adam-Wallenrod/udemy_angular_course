@@ -23,7 +23,7 @@ import { InfiniteScrollerDirective } from './infinite-scroller.directive';
 import { NewsComponent } from './news/news.component';
 import { MeanPipe } from './mean.pipe';
 import { MeanPipeHostComponent } from './mean-pipe-host/mean-pipe-host.component';
-import { MulitilangComponent } from './mulitilang/mulitilang.component';
+import { MultilangComponent } from './multilang/multilang.component';
 
 
 const appRoutes: Routes = [
@@ -57,7 +57,7 @@ export function createTranslateLoader(http: HttpClient) {
     NewsComponent,
     MeanPipe,
     MeanPipeHostComponent,
-    MulitilangComponent
+    MultilangComponent
   ],
   imports: [
     BrowserModule,
