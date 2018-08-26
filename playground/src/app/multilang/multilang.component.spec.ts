@@ -4,10 +4,23 @@ import { HttpClientTestingModule,
 import { async, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
 import { MultilangComponent } from './multilang.component';
-import { createTranslateLoader } from "../app.module";
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+// import { createTranslateLoader } from "../app.module";
+// import { HttpLoaderFactory } from "../app.module";
 
-const TRANSLATIONS_EN = require('../../assets/localization/en-lang.json');
-const TRANSLATIONS_FR = require('../../assets/localization/fr-lang.json');
+ const TRANSLATIONS_EN = require('../../assets/localization/en-lang.json');
+ const TRANSLATIONS_FR = require('../../assets/localization/fr-lang.json');
+
+ export function HttpLoaderFactory(http: HttpClient) {
+     return new TranslateHttpLoader(http);
+ }
+
+ export function createTranslateLoader(http: HttpClient) {
+     return new TranslateHttpLoader(http, '../assets/localization/', '-lang.json');
+ }
+
+// const TRANSLATIONS_EN = require('../assets/i18n/en.json');
+// const TRANSLATIONS_FR = require('../assets/i18n/fr.json');
 
 describe('MulitilangComponent', () => {
   let translate: TranslateService;
@@ -23,7 +36,8 @@ describe('MulitilangComponent', () => {
         TranslateModule.forRoot({
           loader: {
             provide: TranslateLoader,
-            useFactory: createTranslateLoader,
+            useFactory: HttpLoaderFactory,
+          //  useFactory: createTranslateLoader,
             deps: [HttpClient]
           }
         })
@@ -51,10 +65,28 @@ describe('MulitilangComponent', () => {
 
     console.log(TRANSLATIONS_EN);
 
-//    http.expectOne('/assets/localization/en-lang.json').flush(TRANSLATIONS_EN);
 
-http.expectOne('en').flush(TRANSLATIONS_EN);
 
+    http.expectOne('/assets/i18n/en.json').flush(TRANSLATIONS_EN);
+
+    http.verify();
+
+    fixture.detectChanges();
+
+
+   expect(compiled.querySelector('h2').textContent).toEqual(TRANSLATIONS_EN.HOME.TITLE);
+   let h2En = compiled.querySelector('h2').textContent;
+   console.log(h2En);
+   
+    translate.use('fr');
+    http.expectOne('/assets/i18n/fr.json').flush(TRANSLATIONS_FR);
+
+    // Finally, assert that there are no outstanding requests.
+    http.verify();
+    fixture.detectChanges();
+    expect(compiled.querySelector('h2').textContent).toEqual(TRANSLATIONS_FR.HOME.TITLE);
+    let h2Fr = compiled.querySelector('h2').textContent;
+    console.log(h2Fr);
   }));
 
 

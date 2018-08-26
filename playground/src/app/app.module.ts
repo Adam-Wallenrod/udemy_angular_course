@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/localization/', '-lang.json');
+    return new TranslateHttpLoader(http, '../assets/localization/', '-lang.json');
 }
 
 
