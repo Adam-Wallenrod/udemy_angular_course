@@ -15,9 +15,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
      return new TranslateHttpLoader(http);
  }
 
- export function createTranslateLoader(http: HttpClient) {
-     return new TranslateHttpLoader(http, '../assets/localization/', '-lang.json');
- }
+ // export function createTranslateLoader(http: HttpClient) {
+ //     return new TranslateHttpLoader(http, '../assets/localization/', '-lang.json');
+ // }
 
 // const TRANSLATIONS_EN = require('../assets/i18n/en.json');
 // const TRANSLATIONS_FR = require('../assets/i18n/fr.json');
@@ -77,7 +77,7 @@ describe('MulitilangComponent', () => {
    expect(compiled.querySelector('h2').textContent).toEqual(TRANSLATIONS_EN.HOME.TITLE);
    let h2En = compiled.querySelector('h2').textContent;
    console.log(h2En);
-   
+
     translate.use('fr');
     http.expectOne('/assets/i18n/fr.json').flush(TRANSLATIONS_FR);
 

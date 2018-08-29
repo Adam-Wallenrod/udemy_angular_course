@@ -1,0 +1,13 @@
+/* .columns {
+  margin: 20px 0;
+} */
+
+/* .column.is-half {
+  margin: 0px 0;
+} */
+.colored {
+  background-color: aqua;
+  border-radius: 4px;
+  margin: 10px 20px;
+  text-align: center;
+}
