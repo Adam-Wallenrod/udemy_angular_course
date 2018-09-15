@@ -24,6 +24,8 @@ import { NewsComponent } from './news/news.component';
 import { MeanPipe } from './mean.pipe';
 import { MeanPipeHostComponent } from './mean-pipe-host/mean-pipe-host.component';
 import { MultilangComponent } from './multilang/multilang.component';
+import { RestComponent } from './rest/rest.component';
+import { RestUserComponent } from './rest/rest-user/rest-user.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +34,10 @@ const appRoutes: Routes = [
   { path: 'memory-b', component: MemoryBComponent },
   { path: 'memory-c', component: MemoryCComponent },
   { path: 'charts', component: TestChartComponent },
-  { path: 'news', component: NewsComponent }
+  { path: 'news', component: NewsComponent },
+  { path: 'users', component: RestComponent },
+  {path: 'users-details/:id', component: RestUserComponent }
+
 ];
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -57,7 +62,9 @@ export function createTranslateLoader(http: HttpClient) {
     NewsComponent,
     MeanPipe,
     MeanPipeHostComponent,
-    MultilangComponent
+    MultilangComponent,
+    RestComponent,
+    RestUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<br>
+
+<p>
+  rest works! and here are data:
+</p>
+
+<div *ngFor="let user of users">
+  <a routerLink="/users-details/{{user.id}}">
+    <b>id:</b> {{user.id}}
+    <b>name:</b> {{user.name}}
+    <b>username:</b> {{user.username}}
+  </a>
+</div>
