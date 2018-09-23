@@ -26,6 +26,8 @@ import { MeanPipeHostComponent } from './mean-pipe-host/mean-pipe-host.component
 import { MultilangComponent } from './multilang/multilang.component';
 import { RestComponent } from './rest/rest.component';
 import { RestUserComponent } from './rest/rest-user/rest-user.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+
 
 
 const appRoutes: Routes = [
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
   { path: 'charts', component: TestChartComponent },
   { path: 'news', component: NewsComponent },
   { path: 'users', component: RestComponent },
-  {path: 'users-details/:id', component: RestUserComponent }
+  {path: 'users-details/:id', component: RestUserComponent },
+  {path: 'login-page', component: LoginPageComponent }
 
 ];
 
@@ -64,7 +67,9 @@ export function createTranslateLoader(http: HttpClient) {
     MeanPipeHostComponent,
     MultilangComponent,
     RestComponent,
-    RestUserComponent
+    RestUserComponent,
+    LoginPageComponent,
+
   ],
   imports: [
     BrowserModule,
