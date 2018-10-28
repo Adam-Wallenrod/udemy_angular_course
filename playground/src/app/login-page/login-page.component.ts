@@ -11,6 +11,7 @@ export class LoginPageComponent implements OnInit {
   testLogin = new Login('testUser', 'testPassword');
   newLogin = new Login('','');
   loginForm;
+  loading: boolean = true;
 
   myUrl: string = 'https://www.onet.pl'
   safeUrl: SafeResourceUrl;
@@ -28,5 +29,11 @@ export class LoginPageComponent implements OnInit {
     this.submitted = true;
     console.log('Entered login:', this.newLogin.username);
   };
+
+
+   yourLoadFunction() {
+     console.log('loadFunction is working!');
+     this.loading = false;
+   }
 
 }
