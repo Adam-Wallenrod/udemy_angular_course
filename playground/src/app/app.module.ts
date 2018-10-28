@@ -27,6 +27,7 @@ import { MultilangComponent } from './multilang/multilang.component';
 import { RestComponent } from './rest/rest.component';
 import { RestUserComponent } from './rest/rest-user/rest-user.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ForbiddenValidatorDirective } from './forbidden-name.directive';
 
 
 
@@ -69,6 +70,7 @@ export function createTranslateLoader(http: HttpClient) {
     RestComponent,
     RestUserComponent,
     LoginPageComponent,
+    ForbiddenValidatorDirective
 
   ],
   imports: [

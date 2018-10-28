@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from '../login';
+import {DomSanitizer,SafeResourceUrl,} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login-page',
@@ -11,10 +12,13 @@ export class LoginPageComponent implements OnInit {
   newLogin = new Login('','');
   loginForm;
 
-  constructor() { }
+  myUrl: string = 'https://www.onet.pl'
+  safeUrl: SafeResourceUrl;
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.myUrl);
     console.log('created test login: ', this.testLogin);
   }
 
