@@ -19,3 +19,7 @@ body ul {
   background-color: lightblue;
   color: white !important;
 }
+
+body li {
+  cursor: pointer;
+}
