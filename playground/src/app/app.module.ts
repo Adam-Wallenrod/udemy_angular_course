@@ -28,7 +28,7 @@ import { RestComponent } from './rest/rest.component';
 import { RestUserComponent } from './rest/rest-user/rest-user.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ForbiddenValidatorDirective } from './forbidden-name.directive';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 const appRoutes: Routes = [
@@ -80,6 +80,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     NgxChartsModule,
     HttpClientModule,
+    AngularFontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

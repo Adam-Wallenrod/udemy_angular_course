@@ -19,6 +19,18 @@
   <app-mean-pipe-host></app-mean-pipe-host>
 </div>
 
+<fa name="cog" animation="spin"></fa>
+<div class="list" id="list">
+    <ul>
+      <i class="fa fa-stroopwafel"></i> 
+      <li *ngFor="let item of parents; let indx='index'">
+        <fa name="plus"></fa>
+      no.{{indx}} {{item.name}}
+      </li>
+    </ul>
 
+
+
+</div>
 
 </body>
