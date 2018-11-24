@@ -29,6 +29,7 @@ import { RestUserComponent } from './rest/rest-user/rest-user.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ForbiddenValidatorDirective } from './forbidden-name.directive';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AssignmentComponent } from './assignment/assignment.component';
 
 
 const appRoutes: Routes = [
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'users', component: RestComponent },
   {path: 'users-details/:id', component: RestUserComponent },
-  {path: 'login-page', component: LoginPageComponent }
+  {path: 'login-page', component: LoginPageComponent },
+  {path: 'assignment', component: AssignmentComponent }
 
 ];
 
@@ -70,7 +72,8 @@ export function createTranslateLoader(http: HttpClient) {
     RestComponent,
     RestUserComponent,
     LoginPageComponent,
-    ForbiddenValidatorDirective
+    ForbiddenValidatorDirective,
+    AssignmentComponent
 
   ],
   imports: [
