@@ -11,3 +11,49 @@
     <b>username:</b> {{user.username}}
   </a>
 </div>
+
+<div>
+  <p>Hip</p>
+  <ng-template>
+    <p>Hiiip</p>
+  </ng-template>
+  <p>Hooray!</p>
+</div>
+
+
+<div>Pick your favorite fruit, which is sweet
+  <label>
+    <input type="checkbox" checked (change)="showSweet = ! showSweet">
+  </label>
+
+  <div>
+    <select>
+      <ng-container *ngFor="let f of fruits">
+        <ng-container *ngIf="f.taste!=='sweet' || showSweet">
+          <option [value]="f">{{f.name}} ( {{f.taste}} )</option>
+        </ng-container>
+      </ng-container>
+    </select>
+  </div>
+</div>
+
+<br>
+
+
+<div>
+  condition is: {{condition}}
+  <div>
+    <button type="button is-primary" name="button" (click)="condition=!condition">
+      toggle condition
+    </button>
+  </div>
+</div>
+
+<p *appUnless="condition" class="falsy">
+  (A) This paragraph is displayed because the condition is false.
+</p>
+
+<p *appUnless="!condition" class="truthy">
+  (B) This paragraph is displayed even though condition is true.
+  This happens because condtion was negated with (!condition)
+</p>

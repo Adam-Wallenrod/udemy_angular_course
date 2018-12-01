@@ -12,6 +12,17 @@ export class RestComponent implements OnInit {
   jsonData;
   users;
 
+  fruits = [
+    { name: "kiwi", taste: "sweet" },
+    { name: "watermelon", taste: "juicy" },
+    { name: "avocado", taste: "bitter" },
+    { name: "banana", taste: "sweet" }
+  ];
+
+  showSweet: boolean = true;
+  condition = false;
+
+
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
