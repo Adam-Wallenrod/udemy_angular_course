@@ -31,6 +31,7 @@ import { ForbiddenValidatorDirective } from './forbidden-name.directive';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { UnlessDirective } from './unless.directive';
+import { FilterPipe } from './filter.pipe';
 
 
 const appRoutes: Routes = [
@@ -75,7 +76,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoginPageComponent,
     ForbiddenValidatorDirective,
     AssignmentComponent,
-    UnlessDirective
+    UnlessDirective,
+    FilterPipe
 
   ],
   imports: [

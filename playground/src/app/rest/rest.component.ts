@@ -19,6 +19,9 @@ export class RestComponent implements OnInit {
     { name: "banana", taste: "sweet" }
   ];
 
+  items = [{ title: 'hello' }, { title: 'hello' }, { title: 'foo bar' }];
+  filterargs = { title: 'hello' };
+
   showSweet: boolean = true;
   condition = false;
 
