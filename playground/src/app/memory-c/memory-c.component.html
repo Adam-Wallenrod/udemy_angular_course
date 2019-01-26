@@ -1,9 +1,20 @@
 <body>
 
-  <h1>Memory C</h1>
-  <p>
-    memory-c works!
-  </p>
+  <form (ngSubmit)="onSubmitClick(myForm)" #myForm="ngForm">
+
+    <label for="myBrowser">Choose a browser or add a new one:</label>
+    <input (keyup)="checkText(inputRef.value)" list="browsers" id="myBrowser" name="myBrowser" #inputRef="ngModel" ngModel required />
+
+    <datalist id="browsers">
+      <option data-value="{{selectedBrowser.name}}" value="selectedBrowser.id">
+      <option *ngFor="let browser of availableBrowsers" data-value="{{browser.name}}" value="browser.id">
+      </option>
+    </datalist>
+
+  </form>
+
+  <button [disabled]="disableCreateBtn" (click)="onCreateClick()">
+    Create
+  </button>
 
 </body>
-
