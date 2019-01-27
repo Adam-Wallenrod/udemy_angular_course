@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmitClick(myForm)" #myForm="ngForm">
 
     <label for="myBrowser">Choose a browser or add a new one:</label>
-    <input (keyup)="checkText(inputRef.value)" list="browsers" id="myBrowser" name="myBrowser" #inputRef="ngModel" ngModel required />
+    <input  [ngModel]="selectedBrowser.id" (keyup)="checkText(inputRef.value)" list="browsers" id="myBrowser" name="myBrowser" #inputRef="ngModel" ngModel required />
 
     <datalist id="browsers">
       <option data-value="{{selectedBrowser.name}}" value="selectedBrowser.id">
@@ -16,5 +16,9 @@
   <button [disabled]="disableCreateBtn" (click)="onCreateClick()">
     Create
   </button>
+
+  <br /><br />
+
+  <tags></tags>
 
 </body>

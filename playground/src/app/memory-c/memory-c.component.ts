@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-interface IBrowser {
+export interface IBrowser {
   id: number;
   name: string;
 }
@@ -38,8 +38,10 @@ export class MemoryCComponent implements OnInit {
     let result = prompt("Enter id value: ");
     let newId = parseInt(result);
     console.log('prompt result: ', newId);
-    this.selectedBrowser = { name: 'aaa', id: newId }
-    console.log('this.inputRef: ', this.inputRef);
+    this.selectedBrowser = { name: 'aaa', id: newId };
+    console.log('this.inputRef: ', this.inputRef.value);
+    this.inputRef.value = this.selectedBrowser.name;
+
   }
 
   checkText(text) {

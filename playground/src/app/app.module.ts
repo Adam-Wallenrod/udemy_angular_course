@@ -32,6 +32,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { UnlessDirective } from './unless.directive';
 import { FilterPipe } from './filter.pipe';
+import { TagsComponent } from './tags/tags.component';
 
 
 const appRoutes: Routes = [
@@ -77,7 +78,8 @@ export function createTranslateLoader(http: HttpClient) {
     ForbiddenValidatorDirective,
     AssignmentComponent,
     UnlessDirective,
-    FilterPipe
+    FilterPipe,
+    TagsComponent
 
   ],
   imports: [
