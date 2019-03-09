@@ -1,36 +1,35 @@
 <body>
 
 
-<h1>Memory A</h1>
-    <p>
-      memory-a works!
-    </p>
+  <h1>Memory A</h1>
+  <p>
+    memory-a works! <app-tooltip></app-tooltip>
+  </p>
 
-<p>
-  This is myArray: {{myArray}}
-</p>
-<p>
-  and the mean of myArray is: {{ myArray | mean}}
-</p>
-<br>
+  <p>
+    This is myArray: {{myArray}}
+  </p>
+  <p>
+    and the mean of myArray is: {{ myArray | mean}}
+  </p>
+  <br>
 
-<div>
-  <h4>app-mean-pipe-host</h4>
-  <app-mean-pipe-host></app-mean-pipe-host>
-</div>
+  <div>
+    <h4>app-mean-pipe-host</h4>
+    <app-mean-pipe-host></app-mean-pipe-host>
+  </div>
 
-<div class="list" id="list">
+  <div class="list" id="list">
     <ul>
       <li *ngFor="let item of parents; let indx='index'">
         <span *ngIf="item.collapsed" (click)="onClick(item)">
           <fa name="plus"></fa>
-        no.{{indx}} {{item.name}}
+          no.{{indx}} {{item.name}}
         </span>
 
-        <span *ngIf="!item.collapsed"
-              (click)="onClick(item)">
+        <span *ngIf="!item.collapsed" (click)="onClick(item)">
           <fa name="minus"></fa>
-        no.{{indx}} {{item.name}}
+          no.{{indx}} {{item.name}}
         </span>
 
       </li>
@@ -38,6 +37,6 @@
 
 
 
-</div>
+  </div>
 
 </body>

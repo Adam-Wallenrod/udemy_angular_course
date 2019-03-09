@@ -33,6 +33,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { UnlessDirective } from './unless.directive';
 import { FilterPipe } from './filter.pipe';
 import { TagsComponent } from './tags/tags.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 
 const appRoutes: Routes = [
@@ -79,7 +80,8 @@ export function createTranslateLoader(http: HttpClient) {
     AssignmentComponent,
     UnlessDirective,
     FilterPipe,
-    TagsComponent
+    TagsComponent,
+    TooltipComponent
 
   ],
   imports: [
