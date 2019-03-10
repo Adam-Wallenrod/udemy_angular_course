@@ -14,14 +14,16 @@
   min-height: 100px;
   z-index: 1;
   border-radius: 4px;
-  transition: opacity 0.3s;
   transform: translate(-100px, 0);
-  /* animation: tooltip-out 300ms ease-out forwards; */
-}
+  transition: 0.5s ease-out;
+
+  }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-  animation: tooltip-in 300ms ease-out forwards;
+  transform: translate(0, 0);
+  transition: 0.5s ease-in;
+  opacity: 1;
 }
 
 .tooltip .tooltiptext::before {
@@ -30,22 +32,30 @@
   position: absolute;
   top: -12%;
   left: 2%;
-  /* margin-left: -5px; */
   border-width: 6px;
   border-style: solid;
   border-color: transparent transparent pink transparent;
 }
 
-@keyframes tooltip-in {
+
+@keyframes slidein {
+  from {
+    transform: translate(-100px, 0);
+    opacity: 0;
+  }
   to {
-    opacity: .9;
     transform: translate(0, 0);
+    opacity: .9;
   }
 }
 
-@keyframes tooltip-out {
-  to {
-    opacity: 0;
+@keyframes slideout {
+  0% {
+    transform: translate(0, 0);
+    opacity: .9;
+  }
+  100% {
     transform: translate(-100px, 0);
+    opacity: 0;
   }
 }
