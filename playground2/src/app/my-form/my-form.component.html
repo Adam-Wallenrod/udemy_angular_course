@@ -1,0 +1,29 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+  <!--<label>-->
+    <!--First name:-->
+    <!--<input type="text" formControlName="firstName" />-->
+  <!--</label>-->
+
+
+  <!--<label>-->
+    <!--Last name:-->
+    <!--<input type="text" formControlName="lastName" />-->
+  <!--</label>-->
+
+
+  <!--<label>-->
+    <!--Email:-->
+    <!--<input type="email" formControlName="email" />-->
+  <!--</label>-->
+
+
+  <!--<label>-->
+    <!--Phone:-->
+    <!--<input type="number" formControlName="phoneNumber" />-->
+  <!--</label>-->
+
+  <input type="text" class="search" id="search-box">
+
+  <button type="submit" [disabled]="myForm.invalid" >submit</button>
+</form>

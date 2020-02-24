@@ -1,0 +1,25 @@
+<ng-template #myTemplate let-item let-item2="value">
+  <div>{{item}}</div>
+  <div>{{item2}}</div>
+</ng-template>
+
+
+<ng-template #mySecondTemplate let-variable="variableValue">
+  <span>This is #mySecondTemplate: {{variable}}</span>
+</ng-template>
+
+
+<ng-template [ngTemplateOutlet]="myTemplate"
+             [ngTemplateOutletContext]="{
+              $implicit: 'this is implicit value',
+              value: 'this is a value'
+             }"
+>
+</ng-template>
+
+
+<div>
+  Using mySecondTemplate this time with <strong>createEmbeddedView</strong>
+  <ng-container #container></ng-container>
+</div>
+
