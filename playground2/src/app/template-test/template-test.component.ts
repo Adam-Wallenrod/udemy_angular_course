@@ -19,9 +19,9 @@ export class TemplateTestComponent implements OnInit {
   ngOnInit() {
     console.log('mySecondTemplateRef: ', this.mySecondTemplateRef);
     // this.containerRef.createEmbeddedView(this.mySecondTemplateRef, {variableValue: 'this variable'});
-    this.swapiService.getUser({id: '1'}).then((data) =>{
-      console.log('data:', data);
-    });
+    // this.swapiService.getUser({id: '1'}).then((data) =>{
+    //   console.log('data:', data);
+    // });
 
   }
 

@@ -9,6 +9,7 @@ import {ResourceModule} from '@ngx-resource/handler-ngx-http';
 import { HttpClientModule } from '@angular/common/http';
 import { MyFormComponent } from './my-form/my-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { DogComponent } from './dog/dog.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ItemComponent,
     OrderByPipe,
     TemplateTestComponent,
-    MyFormComponent
+    MyFormComponent,
+    DogComponent
   ],
   imports: [
     BrowserModule,
