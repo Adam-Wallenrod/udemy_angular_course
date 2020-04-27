@@ -9,7 +9,7 @@ export const mockDog: IDog = {
 };
 
 
-fdescribe('DogService', () => {
+describe('DogService', () => {
 
   let httpTestingController: HttpTestingController;
   let service: DogService;
