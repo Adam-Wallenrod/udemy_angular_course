@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyFormComponent } from './my-form/my-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { DogComponent } from './dog/dog.component';
+import { CheckboxlistComponent } from './checkboxlist/checkboxlist.component';
+import {DemoMaterialModule} from './material-module';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { DogComponent } from './dog/dog.component';
     OrderByPipe,
     TemplateTestComponent,
     MyFormComponent,
-    DogComponent
+    DogComponent,
+    CheckboxlistComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ResourceModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DemoMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

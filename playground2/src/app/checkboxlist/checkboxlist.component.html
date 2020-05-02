@@ -1,0 +1,7 @@
+<mat-checkbox
+  *ngFor="let option of options"
+  [disabled]="isDisabled"
+  [checked]="isChecked(option)"
+  (change)="onChange($event, option)"
+  class="multicheckbox-entry" >
+</mat-checkbox>
