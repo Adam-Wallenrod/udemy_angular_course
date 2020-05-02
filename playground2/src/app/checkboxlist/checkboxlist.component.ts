@@ -12,6 +12,7 @@ import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 import {MatCheckboxChange} from '@angular/material/checkbox';
 
 
+
 export interface OptionType {
   value: number;
   label: string;
@@ -39,9 +40,10 @@ export class CheckboxlistComponent implements OnInit, ControlValueAccessor {
   private propagateChange = (_: any) => {
   };
   private currentDataModel: number[];
-  isDisabled = false;
+
 
   @Input() options: OptionType;
+  @Input() isDisabled = false;
   @Output() selectionChange = new EventEmitter<MulticheckboxListSelectionChangeEv>();
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
@@ -49,7 +51,6 @@ export class CheckboxlistComponent implements OnInit, ControlValueAccessor {
 
 
   ngOnInit() {
-    this.currentDataModel = [2];
   }
 
 
@@ -59,12 +60,32 @@ export class CheckboxlistComponent implements OnInit, ControlValueAccessor {
 
 
   onChange(ev: MatCheckboxChange, option: OptionType) {
+    let newModel;
+
+    this.currentDataModel = this.currentDataModel || [];
+
+    if (ev.checked === true) {
+      newModel = [...this.currentDataModel.filter(x => x !== option.value), option.value];
+    } else {
+
+      newModel = [...this.currentDataModel.filter(x => x !== option.value)];
+    }
+
+
+    this.selectionChange.emit({
+      checkboxEvent: ev,
+      option: option
+    });
+
+    this.propagateChange(newModel);
+    this.currentDataModel = newModel;
 
   }
 
 
   writeValue(obj: any): void {
     this.currentDataModel = obj;
+    console.log('write : value --> ', obj);
   }
 
 

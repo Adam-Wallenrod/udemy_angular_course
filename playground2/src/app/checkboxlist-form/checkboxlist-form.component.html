@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Make your choice</h2>
+
+    <div class="example-section">
+      <form [formGroup]="form">
+        <app-checkboxlist
+          formControlName="selectedItems"
+          [options]="checkboxListOptions"
+          (selectionChange)="onCheckListChange($event)"
+        >
+        </app-checkboxlist>
+      </form>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+  <mat-card-content>
+    <h2>Selected</h2>
+
+    <div *ngFor="let record of records">
+      {{record.label}}
+    </div>
+
+  </mat-card-content>
+</mat-card>

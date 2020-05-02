@@ -12,6 +12,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { DogComponent } from './dog/dog.component';
 import { CheckboxlistComponent } from './checkboxlist/checkboxlist.component';
 import {DemoMaterialModule} from './material-module';
+import { CheckboxlistFormComponent } from './checkboxlist-form/checkboxlist-form.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import {DemoMaterialModule} from './material-module';
     TemplateTestComponent,
     MyFormComponent,
     DogComponent,
-    CheckboxlistComponent
+    CheckboxlistComponent,
+    CheckboxlistFormComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ResourceModule.forRoot(),
     ReactiveFormsModule,
-    DemoMaterialModule
+    DemoMaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
